@@ -2,6 +2,7 @@ import base64
 import os
 import requests
 import yaml
+import streamlit as st
 
 from pydub import AudioSegment
 
@@ -9,8 +10,8 @@ from pydub import AudioSegment
 #with open("project_config.yml", 'r', encoding='utf-8') as stream:
 #    PROJECT_CONFIG = yaml.safe_load(stream)
 CHUNK_SIZE = 1024  # Size of chunks to read/write at a time
-XI_API_KEY = os.getenv("XI_API_KEY") # Your API key for authentication
-ELISABOT_VOICE_ID = os.getenv("ELISABOT_VOICE_ID") # ID of the voice model to use
+XI_API_KEY = st.secrets["XI_API_KEY"] # Your API key for authentication
+ELISABOT_VOICE_ID = st.secrets["ELISABOT_VOICE_ID"] # ID of the voice model to use
 
 def save_audio_file(siagpt_response, output_path):
     tts_url = f"https://api.elevenlabs.io/v1/text-to-speech/{ELISABOT_VOICE_ID}/stream"

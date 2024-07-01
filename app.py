@@ -11,8 +11,8 @@ from streamlit_utils import autoplay_audio
 #PROJECT_CONFIG = yaml.safe_load(os.getenv("PROJECT_CONFIG"))
 #with open("project_config.yml", 'r', encoding='utf-8') as stream:
 #    PROJECT_CONFIG = yaml.safe_load(stream)
-ASSISTANT_ID = os.getenv("ASSISTANT_ID")
-PROJECT_ID = os.getenv("PROJECT_ID")
+ASSISTANT_ID = st.secrets["ASSISTANT_ID"]
+PROJECT_ID = st.secrets["PROJECT_ID"]
 
 def speech_to_text(audio_input):
     #Takes audio input and uses whisper api to convert it into text
