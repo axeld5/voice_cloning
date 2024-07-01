@@ -2,11 +2,11 @@ import os
 import requests
 import yaml
 
-PROJECT_CONFIG = yaml.safe_load(os.getenv("PROJECT_CONFIG"))
+#PROJECT_CONFIG = yaml.safe_load(os.getenv("PROJECT_CONFIG"))
 #with open("project_config.yml", 'r', encoding='utf-8') as stream:
 #    PROJECT_CONFIG = yaml.safe_load(stream)
-SIAGPT_USERNAME = PROJECT_CONFIG["SIAGPT_USERNAME"]  # Your API key for authentication
-SIAGPT_PASSWORD = PROJECT_CONFIG["SIAGPT_PASSWORD"]  # ID of the voice model to use
+SIAGPT_USERNAME = os.getenv("SIAGPT_USERNAME")  # Your API key for authentication
+SIAGPT_PASSWORD = os.getenv("SIAGPT_PASSWORD")  # ID of the voice model to use
 
 def _generate_answer_results(prompt, assistant_id, project_id, platform_base_uri, platform_access_token):
     data = {
